@@ -464,12 +464,12 @@ public:
         while (arg)
         {
             std::string thisArg = arg;
-            std::transform(thisArg.begin(), thisArg.end(), thisArg.begin(), static_cast<int(*)(int)>(std::tolower));
+            std::transform(thisArg.begin(), thisArg.end(), thisArg.begin(), ::tolower);
             if (thisArg == "ignorerespawn")
                 ignoreRespawn = true;
             else if (thisArg == "force")
                 force = true;
-            else if (thisArg.empty() || !(std::count_if(thisArg.begin(), thisArg.end(), static_cast<int(*)(int)>(std::isdigit)) == (int)thisArg.size()))
+            else if (thisArg.empty() || !(std::count_if(thisArg.begin(), thisArg.end(), ::isdigit) == (int)thisArg.size()))
                 return false;
             else
                 groupId = atoi(thisArg.c_str());
@@ -506,10 +506,10 @@ public:
         while (arg)
         {
             std::string thisArg = arg;
-            std::transform(thisArg.begin(), thisArg.end(), thisArg.begin(), static_cast<int(*)(int)>(std::tolower));
+            std::transform(thisArg.begin(), thisArg.end(), thisArg.begin(), ::tolower);
             if (thisArg == "removerespawntime")
                 deleteRespawnTimes = true;
-            else if (thisArg.empty() || !(std::count_if(thisArg.begin(), thisArg.end(), static_cast<int(*)(int)>(std::isdigit)) == (int)thisArg.size()))
+            else if (thisArg.empty() || !(std::count_if(thisArg.begin(), thisArg.end(), ::isdigit) == (int)thisArg.size()))
                 return false;
             else
                 groupId = atoi(thisArg.c_str());
